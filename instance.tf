@@ -9,6 +9,6 @@ resource "aws_instance" "my-instance" {
     instance_type = "t2.micro"
     vpc_security_group_ids = ["sg-0bf1e4b2a2e7674af"]
     tags = {
-        Name = "Instance_1"
+        Name = "Instance_1-${count.index + 1}"
     }
 }
