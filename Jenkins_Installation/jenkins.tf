@@ -7,7 +7,7 @@ resource "aws_instance" "jenkins_instance" {
   instance_type = "t2.micro"                # Replace with your desired instance type
 
   key_name      = "ohio"          # Replace with your key pair name
-  security_group_names = ["default"]  # Replace with your security group name(s)
+  vpc_security_group_ids = [ "sg-0c85dc03183984b63" ]  # Replace with your security group ID(s)
 
   user_data = <<-EOF
               #!/bin/bash
