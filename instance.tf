@@ -8,7 +8,7 @@ provider "aws" {
 terraform {
   backend "s3" {
     bucket         = "terraform.tfstatefile"
-    key            = "terraform.tfstate"
+    key            = "my-project/terraform.tfstate"
     region         = "us-east-2"  # Replace with your desired region
     encrypt        = true
     dynamodb_table = "terraform_locks"  # Optional: Specify a DynamoDB table for state locking
