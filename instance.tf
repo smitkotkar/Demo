@@ -27,6 +27,21 @@ resource "aws_instance" "my-instance" {
     }
 }
 
+# resource "aws_ebs_volume" "ebs" {
+#     availability_zone = "us-east-2"
+#     size
+#       tags = {
+#         Name = "ec2-ebs"
+#       }
+# }
+
+# resource "aws_volume_attachment" "ebs_att" {
+#     device_name = "/dev/sdb"
+#     volume_id = aws_ebs_volume.ebs.volume_id
+#     instance_id = aws_instance.ec2.id
+# }
+
+
 resource "aws_security_group" "my-sg" {
     name = "all-allow-sg"
     description = "ALlow TLS inbound traffic"
