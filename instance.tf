@@ -5,15 +5,15 @@ provider "aws" {
 # Run command on Terminal
 # aws s3 cp terraform.tfstate s3://your-unique-s3-bucket-name/my-project/terraform.tfstate
 
-terraform {
-  backend "s3" {
-    bucket         = "terraform.tfstatefile"
-    key            = "my-project/terraform.tfstate"
-    region         = "us-east-2"  # Replace with your desired region
-    encrypt        = true
-    dynamodb_table = "terraform_locks"  # Optional: Specify a DynamoDB table for state locking
-  }
-}
+# terraform {
+#   backend "s3" {
+#     bucket         = "terraform.tfstatefile"
+#     key            = "my-project/terraform.tfstate"
+#     region         = "us-east-2"  # Replace with your desired region
+#     encrypt        = true
+#     dynamodb_table = "terraform_locks"  # Optional: Specify a DynamoDB table for state locking
+#   }
+# }
 
 resource "aws_instance" "my-instance" {
     count = 2
