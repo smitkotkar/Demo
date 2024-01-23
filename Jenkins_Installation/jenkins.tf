@@ -15,9 +15,14 @@ resource "aws_instance" "jenkins_instance" {
               sudo amazon-linux-extras install java-openjdk11 -y
               sudo amazon-linux-extras install epel -y
               sudo yum install -y wget
-              sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins.io/redhat/jenkins.repo
-              sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
-              sudo yum install -y jenkins
+              sudo wget -O /etc/yum.repos.d/jenkins.repo   https://pkg.jenkins.io/redhat-stable/jenkins.repo
+              sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+              sudo yum upgrade -y
+              sudo yum install fontconfig java-17-openjdk
+              sudo yum install fontconfig java-11-openjdk
+              sudo yum install jenkins -y
+              sudo systemctl daemon-reload
+              sudo systemctl enable jenkins
               sudo systemctl start jenkins
               EOF
 
